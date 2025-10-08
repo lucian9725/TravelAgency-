@@ -9,6 +9,7 @@ public interface OrderService {
 
     Order buyTour(Integer tourId, int numAdults, int numChildren, String customerName);
 
+    public List<Order> getAllOrders();
 
 
     List<Order> getOrderByCustomer(String name);

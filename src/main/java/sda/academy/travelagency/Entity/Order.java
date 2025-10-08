@@ -2,12 +2,16 @@ package sda.academy.travelagency.Entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Data
+@Getter
+@Setter
 @Entity
 @Table(name = "orders")
 public class Order {

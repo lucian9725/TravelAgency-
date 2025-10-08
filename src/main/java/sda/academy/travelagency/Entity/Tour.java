@@ -3,12 +3,16 @@ package sda.academy.travelagency.Entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Data
+@Getter
+@Setter
 @Entity
 public class Tour {
 
@@ -17,12 +21,13 @@ public class Tour {
     private Integer id;
 
     @OneToOne
-    @JoinColumn(name = "location_id")
+    @JoinColumn(name = "where_from_id")
     private Location whereFrom;
 
-    @OneToOne
-    @JoinColumn(name = "location2_id")
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "location_id")
     private Location whereTo;
+
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate departureDate;
@@ -48,6 +53,7 @@ public class Tour {
     @OneToMany(mappedBy = "tour")
     @JsonIgnore
     private List<Order> orders;
+
 
 
 

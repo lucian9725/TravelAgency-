@@ -16,4 +16,5 @@ public interface LocationService {
     public Location updateLocation(int id, Location updatedLocation);
 
 
+    Location getLocationById(Integer whereFromId);
 }

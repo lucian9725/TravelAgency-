@@ -61,6 +61,12 @@ public class LocationServiceImpl implements LocationService {
         return locationRepository.save(existingLocation);
     }
 
+    @Override
+    public Location getLocationById(Integer id) {
+        return locationRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Location with id " + id + " not found"));
+    }
+
 
 
 
